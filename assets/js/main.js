@@ -128,28 +128,25 @@ $(document).ready(function(){
         var $theme = localStorage.getItem("theme");
         setTheme($theme);
     });
-    // setInterval(function(){ var $theme = localStorage.getItem("theme"); setTheme($theme); }, 1000);
 
-    var time = new Date();
+    var $time = new Date();
     setTimeout(function() {
-        setInterval(function(){ setTheme(localStorage.getItem("theme")); }, 3600000);
-    }, (60 - time.getMinutes()) * 60000);
-
+        setInterval(function(){ setTheme(localStorage.getItem("theme")); console.log(1);}, 3600000);
+    }, (60 - $time.getMinutes()) * 60000);
 });
 
 
 function setTheme($theme) {
     var $hour = (new Date()).getHours();
     var $themeClass = $theme;
-    if($theme == "auto" && ($hour < 6 || $hour>=18)) {
+    if($theme == "auto" && ($hour < 8 || $hour>=18)) {
         $themeClass = "dark";
-    } else if($theme == "auto" && ($hour >= 6 && $hour<18)){
+    } else if($theme == "auto" && ($hour >= 8 && $hour<18)){
         $themeClass = "light";
     }
     var $themeIcon = $themeClass == "dark" ? "moon" : "sun";
     $("html").attr("data-bs-theme",$themeClass);
     $(".header-dark-mode-dropdown-toggle").html('<i class="fa fa-'+ $themeIcon +'"></i>');
-    console.log(1);
 }
 //end header
 

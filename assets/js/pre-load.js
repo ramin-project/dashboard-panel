@@ -7,7 +7,7 @@ if($theme == null || $theme == "") {
 var $themeClass = $theme;
 var $hour = (new Date()).getHours();
 if($theme == "auto") {
-    if($hour < 6 || $hour>=18) {
+    if($hour < 8 || $hour>=18) {
         $themeClass = "dark";
     } else {
         $themeClass = "light";
@@ -22,7 +22,7 @@ function setOnLoadThemeIcon() {
     var $themeClass = $theme;
     var $hour = (new Date()).getHours();
     if($theme == "auto") {
-        if($hour < 6 || $hour>=18) {
+        if($hour < 8 || $hour>=18) {
             $themeClass = "dark";
         } else {
             $themeClass = "light";
@@ -34,3 +34,16 @@ function setOnLoadThemeIcon() {
 
 }
 //*************end dark theme******************
+
+
+
+//*************start loading*******************
+window.addEventListener('load', () => {
+    var $loader = document.querySelector(".loader");
+    $loader.classList.add("loader-hidden");
+    $loader.addEventListener("transitionend", () => {
+        console.log(1);
+        document.body.removeChild(".loader");
+    });
+});
+//***************end loading*******************

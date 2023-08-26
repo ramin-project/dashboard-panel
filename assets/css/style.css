@@ -44,6 +44,9 @@ f2f7f8      taghriban sefid monaseb baraye background asli
 	--bg-gradiant : linear-gradient(-45deg,rgba(147,26,222,0.83) 0%,rgba(28,206,234,0.82) 100%);
 
 	--border-color : #deece3;
+
+	--loader-bg : rgba(242, 247, 248, 0.7);
+	--loader-border : #e8eaeb;
 }
 [data-bs-theme=dark] {
 	--body-text-color: #efefef;
@@ -82,6 +85,9 @@ f2f7f8      taghriban sefid monaseb baraye background asli
 	--bg-gradiant : linear-gradient(-45deg,rgba(147,26,222,0.83) 0%,rgba(28,206,234,0.82) 100%);
 
 	--border-color : #2e3c33;
+
+	--loader-bg : rgba(38, 41, 43, 0.7);
+	--loader-border : #181a1b;
 
 }
 
@@ -858,4 +864,51 @@ body::-webkit-scrollbar-button:vertical:increment:hover
 .active  .page-link{
 	background-color: #4285f4 !important;
 	color: #efefef!important;
+}
+
+
+
+
+/*
+ -----------------------------------------------------------------------------------------------------------------------
+ page loader
+ -----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	transition: opacity 0.75s, visibility 0.75s;
+	z-index: 999999;
+	background-color: var(--loader-bg);
+}
+
+.loader-hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+.loader::after {
+	content: "";
+	width: 75px;
+	height: 75px;
+	border: 8px solid var(--loader-border);
+	border-top-color: var(--sidebar-active-link-text);
+	border-radius: 50%;
+	animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+	from {
+		transform: rotate(0turn);
+	}
+	to {
+		transform: rotate(1turn);
+	}
 }
