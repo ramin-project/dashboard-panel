@@ -14,7 +14,8 @@ d8eacc      sabz khoshrang
 f2f7f8      taghriban sefid monaseb baraye background asli
 */
 
-:root {
+:root, [data-bs-theme=light] {
+	--body-text-color: #333333;
 	--transition-time: 0.3s;
 	--bg-white : #ffffff;
 	--color-white : #ffffff;
@@ -41,7 +42,53 @@ f2f7f8      taghriban sefid monaseb baraye background asli
 
 
 	--bg-gradiant : linear-gradient(-45deg,rgba(147,26,222,0.83) 0%,rgba(28,206,234,0.82) 100%);
+
+	--border-color : #deece3;
 }
+[data-bs-theme=dark] {
+	--body-text-color: #efefef;
+
+	background-color: #26292b!important;
+	color: var(--body-text-color);
+
+	/*#181a1b*/
+	--dark-bg: #181a1b;
+
+	--transition-time: 0.3s;
+	--bg-white : var(--dark-bg);
+	--color-white : #070707;
+	--color-dark : #cccccc;
+	--color-black : #f7f7f7;
+	--color-grey : #666666;
+	--box-shadow : 0px 0px 7px 2px rgba(20, 20, 20, .5);
+	--box-shadow-light : 0px 0px 5px 2px rgba(20, 20, 20, .15);
+	--text-shadow : 2px 2px 5px #000000;
+
+	--sidebar-box-shadow : 0px 0px 5px 0px rgba(20, 20, 20, .5);
+
+	--sidebar-bg : var(--bg-white);
+	--sidebar-active-link-bg : #4c412f;
+	--sidebar-active-link-text : #da624a;
+	--sidebar-scroll : #de897a;
+
+	--toggle-burger-color : #dc4628;
+
+	--main-container-bg : #26292b;
+	--main-container-header-bg : var(--bg-white);
+	--main-container-header-height : 3.8rem;
+	--main-container-header-menu-image-bg : #16aaff;
+
+
+	--bg-gradiant : linear-gradient(-45deg,rgba(147,26,222,0.83) 0%,rgba(28,206,234,0.82) 100%);
+
+	--border-color : #2e3c33;
+
+}
+
+/*.dark-mode .btn-link:hover {*/
+/*	background-color: rgba(0,0,0, 0.1);*/
+/*}*/
+
 
 
 /*
@@ -57,6 +104,7 @@ f2f7f8      taghriban sefid monaseb baraye background asli
 
 body {
     background-color: #f7f7f7;
+	color: var(--body-text-color);
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -120,51 +168,7 @@ body::-webkit-scrollbar-button:vertical:increment:hover
 	border-color: #505050 transparent transparent transparent;
 }
 
-.dark-mode {
-	background-color: #2C302E!important;
-	color: #efefef!important;
 
-	/*#2C302E*/
-	--dark-bg: #313533;
-
-	--transition-time: 0.3s;
-	--bg-white : var(--dark-bg);
-	--color-white : #070707;
-	--color-dark : #cccccc;
-	--color-black : #f7f7f7;
-	--color-grey : #666666;
-	--box-shadow : 0px 0px 7px 2px rgba(40, 40, 40, .5);
-	--box-shadow-light : 0px 0px 5px 2px rgba(200, 200, 200, .05);
-	--text-shadow : 2px 2px 5px #000000;
-
-	--sidebar-box-shadow : 0px 0px 5px 0px rgba(100, 100, 100, .2);
-
-	--sidebar-bg : var(--bg-white);
-	--sidebar-active-link-bg : #4c412f;
-	--sidebar-active-link-text : #da624a;
-	--sidebar-scroll : #de897a;
-
-	--toggle-burger-color : #dc4628;
-
-	--main-container-bg : #323738;
-	--main-container-header-bg : var(--bg-white);
-	--main-container-header-height : 3.8rem;
-	--main-container-header-menu-image-bg : #16aaff;
-
-
-	--bg-gradiant : linear-gradient(-45deg,rgba(147,26,222,0.83) 0%,rgba(28,206,234,0.82) 100%);
-
-
-
-}
-
-.dark-mode * {
-	color: #efefef;
-}
-
-.dark-mode .btn-link:hover {
-	background-color: rgba(0,0,0, 0.1);
-}
 
 /*
  -----------------------------------------------------------------------------------------------------------------------
@@ -423,6 +427,7 @@ body::-webkit-scrollbar-button:vertical:increment:hover
 	position: relative;
 	color: var(--color-dark);
 	cursor: pointer;
+	font-size: 1.2rem;
 	transition: var(--transition-time);
 }
 
@@ -467,6 +472,11 @@ body::-webkit-scrollbar-button:vertical:increment:hover
 	text-align: center;
 }
 
+.header-dark-mode-dropdown-menu .active{
+	background-color:  var(--sidebar-active-link-bg);
+	color: var(--sidebar-active-link-text);
+	border-radius: 0.25rem;
+}
 
 /*other styles*/
 
@@ -800,6 +810,7 @@ body::-webkit-scrollbar-button:vertical:increment:hover
 	box-shadow: var(--box-shadow);
 	list-style: none;
 	padding: 0.6rem 0.6rem;
+	z-index: 1;
 }
 
 .main-body-dropdown-menu-end {
@@ -825,4 +836,26 @@ body::-webkit-scrollbar-button:vertical:increment:hover
 	background-color:  var(--sidebar-active-link-bg);
 	color: var(--sidebar-active-link-text);
 	border-radius: 0.25rem;
+}
+
+
+
+
+/*
+ -----------------------------------------------------------------------------------------------------------------------
+ mdb pagination
+ -----------------------------------------------------------------------------------------------------------------------
+*/
+
+
+.page-link {
+	border: 1px solid var(--border-color)!important;
+	margin-bottom: 0!important;
+	color: var(--color-dark)!important;
+	background-color: var(--main-container-bg)!important;
+}
+
+.active  .page-link{
+	background-color: #4285f4 !important;
+	color: #efefef!important;
 }
